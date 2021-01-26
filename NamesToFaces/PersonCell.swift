@@ -25,11 +25,27 @@ class PersonCell: UICollectionViewCell {
         addSubview(imageView)
         addSubview(label)
         backgroundColor = .white
-
-        imageView.frame = CGRect(x: 10, y: 10, width: 120, height: 120)
-
+        
+        imageView.image = UIImage(named: "image-placeholder")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "MarkerFelt-Thin", size: 16)
+        label.text = "Text"
         label.textAlignment = .center
         label.numberOfLines = 2
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            imageView.widthAnchor.constraint(equalToConstant: 120),
+            imageView.heightAnchor.constraint(equalToConstant: 120),
+            
+            label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 15),
+            label.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
+        ])
     }
 }
