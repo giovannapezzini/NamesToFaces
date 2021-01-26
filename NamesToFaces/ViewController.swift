@@ -7,13 +7,28 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureNavBar()
         configureCollectionView()
+    }
+    
+    @objc func addNewPerson() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    func configureNavBar() {
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        addButton.tintColor = .black
+        navigationItem.leftBarButtonItem = addButton
     }
     
     func configureCollectionView() {
@@ -23,7 +38,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView?.register(PersonCell.self, forCellWithReuseIdentifier: PersonCell.reuseID)
-        collectionView?.backgroundColor = UIColor.white
+        collectionView?.backgroundColor = .systemGray5
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -33,7 +48,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // MARK: - CollectionView Delegate and DataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
