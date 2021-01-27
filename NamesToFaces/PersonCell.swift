@@ -9,8 +9,26 @@ import UIKit
 
 class PersonCell: UICollectionViewCell {
     static let reuseID = "PersonCell"
-    let imageView = UIImageView()
-    let label = UILabel()
+    
+    var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "image-placeholder")
+        imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+        imageView.layer.borderWidth = 2
+        imageView.layer.cornerRadius = 3
+        return imageView
+    }()
+    
+    var nameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "MarkerFelt-Thin", size: 16)
+        label.text = "Text"
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,17 +41,9 @@ class PersonCell: UICollectionViewCell {
     
     func configure() {
         addSubview(imageView)
-        addSubview(label)
+        addSubview(nameLabel)
         backgroundColor = .white
-        
-        imageView.image = UIImage(named: "image-placeholder")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "MarkerFelt-Thin", size: 16)
-        label.text = "Text"
-        label.textAlignment = .center
-        label.numberOfLines = 2
+        layer.cornerRadius = 7
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
@@ -42,9 +52,9 @@ class PersonCell: UICollectionViewCell {
             imageView.widthAnchor.constraint(equalToConstant: 120),
             imageView.heightAnchor.constraint(equalToConstant: 120),
             
-            label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 15),
-            label.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 15),
+            nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
         ])
     }
