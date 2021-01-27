@@ -19,12 +19,31 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         configureCollectionView()
     }
     
-    @objc func addNewPerson() {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = true
-        picker.delegate = self
-        present(picker, animated: true)
+    // MARK: - Configure elements
+    
+    func configureNavBar() {
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        addButton.tintColor = .black
+        navigationItem.leftBarButtonItem = addButton
     }
+    
+    func configureCollectionView() {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: 60, height: 60)
+        
+        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        collectionView?.register(PersonCell.self, forCellWithReuseIdentifier: PersonCell.reuseID)
+        collectionView?.backgroundColor = .systemGray5
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        view.addSubview(collectionView)
+    }
+    
+    
+    
+    // MARK: - Image Picker methods
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
@@ -48,24 +67,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return paths[0]
     }
     
-    func configureNavBar() {
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
-        addButton.tintColor = .black
-        navigationItem.leftBarButtonItem = addButton
-    }
-    
-    func configureCollectionView() {
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 60, height: 60)
-        
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-        collectionView?.register(PersonCell.self, forCellWithReuseIdentifier: PersonCell.reuseID)
-        collectionView?.backgroundColor = .systemGray5
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        view.addSubview(collectionView)
+    @objc func addNewPerson() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
     }
     
     // MARK: - CollectionView Delegate and DataSource
