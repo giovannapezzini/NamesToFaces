@@ -95,6 +95,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let person = people[indexPath.item]
         
+        let ac = UIAlertController(title: "Select Action", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Rename", style: .default, handler: { _ in
+            self.renamePerson(person: person)
+        }))
+        
+        ac.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+            self.people.remove(at: indexPath.row)
+            collectionView.deleteItems(at: [indexPath])
+        }))
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            self.dismiss(animated: true)
+        }))
+        
+        present(ac, animated: true)
+    }
+    
+    func renamePerson(person: Person) {
         let ac = UIAlertController(title: "Rename person", message: nil, preferredStyle: .alert)
         ac.addTextField()
         
