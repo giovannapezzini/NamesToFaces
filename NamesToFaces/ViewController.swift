@@ -30,6 +30,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let imageName = UUID().uuidString
         let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
+        
+        if let jpegData = image.jpegData(compressionQuality: 0.8) {
+            try? jpegData.write(to: imagePath)
+        }
+        
+        dismiss(animated: true)
     }
     
     func getDocumentsDirectory() -> URL {
