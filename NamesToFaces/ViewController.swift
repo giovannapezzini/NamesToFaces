@@ -71,11 +71,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // MARK: - CollectionView Delegate and DataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return people.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonCell.reuseID, for: indexPath) as! PersonCell
+        
+        let person = people[indexPath.item]
+        cell.nameLabel.text = person.name
+        
+        let path = getDocumentsDirectory().appendingPathComponent(person.image)
+        cell.imageView.image = UIImage(contentsOfFile: path.path)
         
         return cell
     }
