@@ -69,10 +69,25 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @objc func addNewPerson() {
         let picker = UIImagePickerController()
-        picker.sourceType = .camera
         picker.allowsEditing = true
         picker.delegate = self
-        present(picker, animated: true)
+        
+        let ac = UIAlertController(title: "Upload from", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            picker.sourceType = .camera
+            self.present(picker, animated: true)
+        }))
+        
+        ac.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
+            picker.sourceType = .photoLibrary
+            self.present(picker, animated: true)
+        }))
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            self.dismiss(animated: true)
+        }))
+        
+        present(ac, animated: true)
     }
     
     // MARK: - CollectionView Delegate and DataSource
