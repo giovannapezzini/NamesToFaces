@@ -85,6 +85,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.dismiss(animated: true)
         }))
         
+        ac.pruneNegativeWidthConstraints()
         present(ac, animated: true)
     }
     
@@ -123,6 +124,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.dismiss(animated: true)
         }))
         
+        ac.pruneNegativeWidthConstraints()
         present(ac, animated: true)
     }
     
