@@ -30,7 +30,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func configureCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 60, height: 60)
         
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView?.register(PersonCell.self, forCellWithReuseIdentifier: PersonCell.reuseID)
@@ -145,7 +144,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // MARK: - CollectionView Delegate FlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 140, height: 180)
+        let width = self.view.frame.width / 2
+        return CGSize(width: width - 15, height: width)
     }
     
 }
