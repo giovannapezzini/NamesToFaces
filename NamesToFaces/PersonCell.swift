@@ -49,12 +49,13 @@ class PersonCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            imageView.widthAnchor.constraint(equalToConstant: 120),
-            imageView.heightAnchor.constraint(equalToConstant: 120),
+            imageView.widthAnchor.constraint(equalToConstant: self.frame.width - 20),
+            imageView.heightAnchor.constraint(equalToConstant: self.frame.height - 50),
             
             nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 15),
             nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15)
             
         ])
     }
