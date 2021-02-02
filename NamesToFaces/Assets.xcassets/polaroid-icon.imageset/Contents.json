@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "image-placeholder.png",
+      "filename" : "polaroid-icon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "polaroid-icon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "polaroid-icon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
