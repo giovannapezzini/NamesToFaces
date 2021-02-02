@@ -15,6 +15,7 @@
 		1336D77225C1070C00DBD39C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336D77125C1070C00DBD39C /* Person.swift */; };
 		135653B125C8BDD5006972EB /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135653B025C8BDD5006972EB /* EmptyStateView.swift */; };
 		13B4492A25BFB246006D1299 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B4492925BFB246006D1299 /* PersonCell.swift */; };
+		13BE9F2525C8E716001040B7 /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BE9F2425C8E716001040B7 /* AppBanner.png */; };
 		13DF5DEA25C61DC200B0032D /* UIAlertController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DF5DE925C61DC200B0032D /* UIAlertController+Ext.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,8 @@
 		1336D77125C1070C00DBD39C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		135653B025C8BDD5006972EB /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		13B4492925BFB246006D1299 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		13BE9F2425C8E716001040B7 /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppBanner.png; sourceTree = "<group>"; };
+		13BE9F2725C8E724001040B7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		13DF5DE925C61DC200B0032D /* UIAlertController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,6 +49,8 @@
 		1315F40525BE42CD0046BFB8 = {
 			isa = PBXGroup;
 			children = (
+				13BE9F2725C8E724001040B7 /* README.md */,
+				13BE9F2325C8E6ED001040B7 /* Documentation */,
 				1315F41025BE42CD0046BFB8 /* NamesToFaces */,
 				1315F40F25BE42CD0046BFB8 /* Products */,
 			);
@@ -74,6 +79,14 @@
 				135653B025C8BDD5006972EB /* EmptyStateView.swift */,
 			);
 			path = NamesToFaces;
+			sourceTree = "<group>";
+		};
+		13BE9F2325C8E6ED001040B7 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				13BE9F2425C8E716001040B7 /* AppBanner.png */,
+			);
+			path = Documentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +148,7 @@
 			files = (
 				1315F41E25BE42CE0046BFB8 /* LaunchScreen.storyboard in Resources */,
 				1315F41B25BE42CE0046BFB8 /* Assets.xcassets in Resources */,
+				13BE9F2525C8E716001040B7 /* AppBanner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
