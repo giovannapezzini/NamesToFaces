@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
+    let emptyStateView = EmptyStateView()
     var collectionView: UICollectionView!
     var people = [Person]()
     
@@ -17,6 +18,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         configureNavBar()
         configureCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if people.isEmpty {
+            emptyStateView.frame = view.bounds
+            view.addSubview(emptyStateView)
+        }
     }
     
     // MARK: - Configure elements
@@ -55,6 +63,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let person = Person(name: "Unknown", image: imageName)
         people.append(person)
         collectionView.reloadData()
+        
+        if !people.isEmpty {
+            emptyStateView.removeFromSuperview()
+        }
         
         dismiss(animated: true)
     }
