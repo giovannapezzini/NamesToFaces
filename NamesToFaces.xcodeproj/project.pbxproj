@@ -13,6 +13,7 @@
 		1315F41B25BE42CE0046BFB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1315F41A25BE42CE0046BFB8 /* Assets.xcassets */; };
 		1315F41E25BE42CE0046BFB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1315F41C25BE42CE0046BFB8 /* LaunchScreen.storyboard */; };
 		1336D77225C1070C00DBD39C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336D77125C1070C00DBD39C /* Person.swift */; };
+		135653B125C8BDD5006972EB /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135653B025C8BDD5006972EB /* EmptyStateView.swift */; };
 		13B4492A25BFB246006D1299 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B4492925BFB246006D1299 /* PersonCell.swift */; };
 		13DF5DEA25C61DC200B0032D /* UIAlertController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DF5DE925C61DC200B0032D /* UIAlertController+Ext.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		1315F41D25BE42CE0046BFB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1315F41F25BE42CE0046BFB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1336D77125C1070C00DBD39C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		135653B025C8BDD5006972EB /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		13B4492925BFB246006D1299 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		13DF5DE925C61DC200B0032D /* UIAlertController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +71,7 @@
 				1315F41C25BE42CE0046BFB8 /* LaunchScreen.storyboard */,
 				1315F41F25BE42CE0046BFB8 /* Info.plist */,
 				13DF5DE925C61DC200B0032D /* UIAlertController+Ext.swift */,
+				135653B025C8BDD5006972EB /* EmptyStateView.swift */,
 			);
 			path = NamesToFaces;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				1315F41225BE42CD0046BFB8 /* AppDelegate.swift in Sources */,
 				13B4492A25BFB246006D1299 /* PersonCell.swift in Sources */,
 				1315F41425BE42CD0046BFB8 /* SceneDelegate.swift in Sources */,
+				135653B125C8BDD5006972EB /* EmptyStateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
