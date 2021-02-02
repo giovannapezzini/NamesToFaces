@@ -14,8 +14,6 @@ class PersonCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "image-placeholder")
-        imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
-        imageView.layer.borderWidth = 2
         imageView.layer.cornerRadius = 3
         return imageView
     }()
@@ -52,10 +50,9 @@ class PersonCell: UICollectionViewCell {
             imageView.widthAnchor.constraint(equalToConstant: self.frame.width - 20),
             imageView.heightAnchor.constraint(equalToConstant: self.frame.height - 50),
             
-            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 15),
             nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15)
+            nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
             
         ])
     }
