@@ -16,6 +16,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let defaults = UserDefaults.standard
+        
+        if let savedPeople = defaults.object(forKey: "people") as? Data {
+            if let decodedPeople = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedPeople) as? [Person] {
+                people = decodedPeople
+            }
+        }
+        
         configureNavBar()
         configureCollectionView()
     }
@@ -62,6 +70,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let person = Person(name: "Unknown", image: imageName)
         people.append(person)
+        save()
         collectionView.reloadData()
         
         if !people.isEmpty {
@@ -146,6 +155,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak self] _ in
             guard let newName = ac.textFields?[0].text else { return }
             person.name = newName
+            self?.save()
             self?.collectionView.reloadData()
         }))
         
@@ -160,5 +170,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return CGSize(width: width - 15, height: width)
     }
     
+    // MARK: - Save Data Methods
+    
+    func save() {
+        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: people, requiringSecureCoding: false) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "people")
+        }
+    }
 }
 
