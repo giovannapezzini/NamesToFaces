@@ -11,3 +11,5 @@ An app to help store names of people you've met.
 + UIImagePickerController
 + UUID
 + NSObject subclasses
++ Codable
++ NSCoding
