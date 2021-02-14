@@ -1,4 +1,4 @@
-# Names to Faces 📸
+# Names to Faces 🧒
 
 ## The App
 An app to help store names of people you've met.
